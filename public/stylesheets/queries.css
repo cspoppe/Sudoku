@@ -1,0 +1,237 @@
+@media (min-width: 68em) and (max-width: 78em) {
+    .numberButtons {
+        grid-column: 1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
+
+    .numberButton {
+        margin: 0.15em 0.15em;
+        padding: 10px 30px;
+    }
+
+    .functionButtons {
+        grid-column: 2;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .functionButton {
+        padding: 10px;
+        margin: 5px 0;
+    }
+
+    .instructions {
+        padding: 0.25rem 0;
+    }
+
+    .instructions ul {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    .game-control {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 68em) {
+    .main-container {
+        grid-template-columns: repeat(auto-fill, 597px);
+        justify-content: center;
+    }
+
+    .helperModeToggle {
+        margin: 0.5em 0;
+    }
+}
+
+@media (max-height: 28em) {
+    .main-container {
+        grid-template-columns: auto 1fr;
+        justify-content: center;
+        column-gap: 1vw;
+    }
+
+    .square {
+        width: 11vh;
+        height: 11vh;
+        min-width: unset;
+        font-size: 5vh;
+    }
+
+    .numberButtons {
+        grid-column: 1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
+
+    .numberButton {
+        padding: 3.5vh 3.5vw;
+        margin: 1vh 0.5vh;
+        /* width: 7vw; */
+        font-size: 1em;
+    }
+
+    .functionButton {
+        width: 20vh;
+        height: 12vh;
+        padding: unset;
+        font-size: 1em;   
+    }
+
+    .functionButtons {
+        grid-column: 2;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-control {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 2vw;
+    }
+
+    .gameCover p {
+        font-size: 5vh;
+    }
+
+    .game-title {
+        display: none;
+    }
+
+    .instructions {
+        display: none;
+    }
+
+    .helperField {
+        width: 3vh;
+        height: 3vh;
+    }
+
+    .difficultySelect {
+        font-size: 1em;
+    }
+
+     #difficulty {
+        font-size: 1em;
+     }
+
+     #helperModeLabel {
+         font-size: 1em;
+         white-space: nowrap;
+         padding-right: 1.5vw;
+     }
+
+     .helperModeToggle {
+         justify-self: center;
+     }
+}
+
+@media (max-width: 28em) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+    .square {
+        width: 11vw;
+        height: 11vw;
+        min-width: unset;
+        font-size: 5vw;
+    }
+
+    .numberButton {
+        padding: 3.5vw;
+        margin: 1vh 0.5vw;
+        /* width: 7vw; */
+        font-size: 1em;
+    }
+
+    .functionButton {
+        width: 20vw;
+        height: 12vw;
+        padding: unset;
+        font-size: 1em;   
+    }
+
+    .gameCover p {
+        font-size: 5vw;
+    }
+
+    .game-title {
+        font-size: 5vw;
+        margin: 1vh;
+    }
+
+    .instructions {
+        display: none;
+    }
+
+    .helperField {
+        width: 3vw;
+        height: 3vw;
+    }
+
+    .difficultySelect {
+        font-size: 1em;
+    }
+
+     #difficulty {
+        font-size: 1em;
+     }
+
+     #helperModeLabel {
+         font-size: 1em;
+         white-space: nowrap;
+         padding-right: 1.5vw;
+     }
+
+     .helperModeToggle {
+        justify-self: center;
+    }
+}
+
+
+/* @media (max-width: 68em) {
+    .main-container {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto;
+    }
+
+    .game-title {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .helperModeToggle {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .game {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .gameCover {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .victoryScreen {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .game-control {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .instructions {
+        grid-column: 1;
+        grid-row: 4;
+    }
+} */

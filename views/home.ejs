@@ -1,0 +1,73 @@
+<% layout('../layouts/boilerplate') %>
+    <h1 class="game-title"> Sudoku by Craig</h1>
+    <div class="main-container">
+        <div class="game-container">
+            <div class="game">
+                <table id="gameBoard">
+                    <% for (let i=0; i < 9; i++) { %>
+                        <tr>
+                            <% for (let j=0; j < 9; j++) { %>
+                                <td class="square <%= i % 3===2 ? " bot-row":""%>" id="<%=`sqR${i}C${j}`%>">
+                                </td>
+                                <% } %>
+                        </tr>
+                        <% } %>
+                </table>
+            </div>
+            <div class="gameCover">
+                <p>Select Difficulty</p>
+                <p>Click "New Game" to start</p>
+            </div>
+            <div class="victoryScreen">
+                <p>Congratulations!</p>
+            </div>
+        </div>
+
+        <div class="game-accessories">
+            <div class="helperModeToggle">
+                <span id="helperModeLabel">Helper Mode</span>
+                <label class="helperModeSwitch">
+                    <input type="checkbox" id="helperModeCheckbox">
+                    <span class="helperModeSlider round"></span>
+                </label>
+            </div>
+            <div class="game-control">
+                <div class="numberButtons">
+                    <% for (let i=1; i < 10; i++) { %>
+                        <button class="numberButton" id="<%=`btn${i}`%>">
+                            <%=i%>
+                        </button>
+                        <% } %>
+                </div>
+                <div class="functionButtons">
+                    <button class="functionButton" id="erase">Erase</button>
+                    <button class="functionButton" id="clear">Clear All</button>
+                    <button class="functionButton" id="randomPuzzle">New Game</button>
+                    <div class="difficultySelect">
+                        <span>Difficulty</span>
+                        <select id="difficulty" name="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                            <option value="debug">Debug</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="instructions">
+                <h2>Controls</h2>
+                <ul>
+                    <li>You can select an input square with the mouse.</li>
+                    <li>Number keys, backspace and delete can be used to edit the entry of the selected (<span
+                            id="orange">orange</span>) square.</li>
+                    <li>Use arrows to move the selected square. Square will wrap around in the
+                        same row/column when it reaches end of puzzle.</li>
+                    <li>Press "s" to move the selected square to the right; square will move down one row when reaches
+                        end of current row.</li>
+                    <li>Press "a" to move the selected square to the left; square will move up one row when reaches end
+                        of current row.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/javascripts/game.js"></script>

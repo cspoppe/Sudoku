@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+    <link rel="stylesheet" href="/stylesheets/gridstyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="game">
+            <table id="gameBoard">
+                <% for (let i=0; i < 3; i++) { %>
+                    <tr>
+                        <% for (let j=0; j < 3; j++) { %>
+                            <td class="square">
+                                0
+                            </td>
+                            <% } %>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+        <div class="gameCover">
+            <p>Click Button To Play</p>
+        </div>
+    </div>
+    <button id="hide">Show Board</button>
+    <script type="module" src="/javascripts/grid.js"></script>
+</body>
+
+</html>

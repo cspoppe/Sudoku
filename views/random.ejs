@@ -1,0 +1,18 @@
+<% layout('../layouts/boilerplate') %>
+    <h1 class="display-4 text-center"> Sudoku Solver</h1>
+    <div>
+        <div class="sudoku-row">
+            <% for (let j=0; j < 9; j++) { %>
+                <% for (let i=0; i < 9; i++) { %>
+                    <div class="square" id="<%=`sqR${j}C${i}`%>">
+                    </div>
+                    <% } %>
+                        <br>
+                        <% } %>
+        </div>
+    </div>
+    <button class="button" id="randomSolution">Random Solution</button>
+    <button class="button" id="randomPuzzle">Random Puzzle</button>
+    <button class="button" id="clear">Clear Display</button>
+    <button class="button" id="showErrors">Highlight Errors</button>
+    <script type="module" src="/javascripts/random.js"></script>

@@ -1,0 +1,420 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+:root {
+    --border-color: #0c1427;
+    --border-weight: 3px;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 3rem;
+    max-width: 79rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    /* align-items: center; */
+}
+
+.game-title {
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-family: Helvetica;
+}
+
+#gameBoard {
+    border-collapse: collapse;
+    border: var(--border-weight) solid #e5e5e5;
+    padding: 0px;
+}
+
+#gameBoard.boardEnabled {
+    border-collapse: collapse;
+    border: var(--border-weight) solid var(--border-color);
+    padding: 0px;
+}
+
+/* 
+td {
+    border: none;
+    padding: 0px;
+} */
+
+.square {
+    width: 66px;
+    height: 66px;
+    min-width: 66px;
+    /* background-color: #e5e5e5; */
+    text-align: center;
+    font-size: 35px;
+    vertical-align: middle;
+    font-family: Helvetica;
+    background-color: #fdfdf6;
+    border: solid 1px #e5e5e5;
+    box-sizing: border-box;
+    /* font-weight: bold; */
+}
+/* 
+.boardEnabled .square {
+    background-color: #fdfdf6;
+    border: solid 1px #e5e5e5;
+} */
+
+.helperTable {
+    border-collapse: collapse;
+}
+
+.helperField {
+    width: 22px;
+    height: 21px;
+    text-align: center;
+    font-size: 10px;
+    color: red;
+    vertical-align: middle;
+    font-family: Helvetica;
+}
+
+.boardEnabled .bot-row {
+    border-bottom: solid var(--border-weight) var(--border-color);
+}
+
+.boardEnabled .square:nth-of-type(3n) {
+    border-right: solid var(--border-weight) var(--border-color);
+}
+
+.boardEnabled .square.input {
+    color: #ba59cd;
+    font-weight: bold;
+}
+
+.boardEnabled .square.conflict {
+    background-color: rgb(247, 146, 146);
+}
+
+.boardEnabled .square.invalid {
+    background-color: rgb(247, 146, 146);
+    color: red;
+}
+
+.boardEnabled .square.selected {
+    background-color: #fca311;
+}
+
+.numberButton {
+    /* display: flex;
+    justify-content: space-around; */
+    /* max-width: 1000px; */
+    /* max-width: 60px; */
+    padding: 20px;
+    font-family: Helvetica;
+    font-size: 1.5rem;
+    border: 1px black solid;
+    margin: 10px 5px;
+    border-radius: 3px;
+}
+
+.numberButton:enabled:hover {
+    background-color: #4bb5f3;
+}
+
+.numberButton:enabled:active {
+    background-color: #044972;
+    color: white;
+}
+
+.numberButtons {
+    display: flex;
+    justify-content: center;
+}
+
+.functionButton {
+    /* display: flex;
+    justify-content: space-around; */
+    /* max-width: 1000px; */
+    width: 120px;
+    padding: 20px;
+    font-family: Helvetica;
+    font-size: 1.2rem;
+    border: 1px black solid;
+    margin: 10px 5px;
+    border-radius: 3px;
+}
+
+.functionButton:enabled:hover {
+    background-color: #dc7c50;
+}
+
+.functionButton:enabled:active {
+    background-color: #cb4936;
+    color: white;
+}
+
+.functionButtons {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    font-family: Helvetica;
+}
+
+.functionButtons span {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.game {
+    grid-column: 1;
+    grid-row: 1;
+    /* grid-row: 1 / -1; */
+}
+
+.gameCover {
+    background-color: #e5e5e5;
+    grid-column: 1;
+    grid-row: 1;
+    /* grid-row: 1/-1; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30%;
+    line-height: 1.2;
+}
+
+.gameCover p {
+    font-size: 30px;
+    color: white;
+    font-family: Helvetica;
+}
+
+.victoryScreen {
+    background-color: rgba(238,130,238,0);
+    grid-column: 1;
+    grid-row: 1;
+    /* grid-row: 1/-1; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40%;
+    line-height: 1.2;
+    visibility: hidden;
+}
+
+.victoryScreen.show {
+    visibility: visible;
+    background-color: rgba(238,130,238,0.5);
+    transition: background-color 1s linear;
+}
+
+.victoryScreen p {
+    font-size: 50px;
+    color: white;
+    font-family: Helvetica;
+    opacity: 1;
+}
+
+.victoryScreen.show p {
+    color: white;
+    opacity: 1;
+    transition: visibility 1s 0s, opacity 1s linear;
+}
+
+.game-accessories {
+    /* grid-column: 2; */
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+.helperModeToggle {
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+}
+
+#helperModeLabel {
+    font-family: Helvetica;
+    font-size: 1.25em;
+    padding-right: 2%;
+    font-style: italic;
+    color: #ccc;
+}
+
+#helperModeLabel.enabled {
+    color: black;
+    font-style: normal;
+}
+
+/* The switch - the box around the slider */
+.helperModeSwitch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+  
+  /* Hide default HTML checkbox */
+  .helperModeSwitch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .helperModeSlider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .helperModeSlider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .2s;
+    transition: .2s;
+  }
+  
+  input:checked + .helperModeSlider {
+    background-color: #4bb5f3;
+  }
+  
+  input:focus + .helperModeSlider {
+    box-shadow: 0 0 1px #4bb5f3;
+  }
+  
+  input:checked + .helperModeSlider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .helperModeSlider.round {
+    border-radius: 34px;
+  }
+  
+  .helperModeSlider.round:before {
+    border-radius: 50%;
+  }
+
+.instructions {
+    /* grid-column: 2; */
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 0;
+}
+
+.instructions h2 {
+    font-family: Helvetica;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.instructions ul {
+    /* list-style: '-   '; */
+    list-style: "\27AE   ";
+    font-family: Helvetica;
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+.instructions li {
+    padding-bottom: 5px;
+}
+
+.game-control {
+    /* grid-column: 2; */
+    grid-row: 2;
+    align-self: end;
+    justify-self: center;
+}
+
+.difficultySelect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5px;
+    font-size: 1.2rem;
+}
+
+#difficulty {
+    font-size: 1.2rem;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s 0s, opacity 1s linear;
+}
+
+#orange {
+    color: #fca311;
+}
+
+.game-title {
+    margin-top: 1rem;
+    font-size: 2rem;
+}
